@@ -16,6 +16,8 @@ public class Falling {
 
         if (args.length < 5) {
             System.out.println("Usage: Falling <image name> <frames> <red> <green> <blue>");
+            System.out.println("  Color weights between 0 and 1.");
+            System.out.println("  For rainbow, set all color weights to 0.");
             return;
         }
 
@@ -34,17 +36,34 @@ public class Falling {
             }
         }
 
+        List<Color> colorKeys = Lists.newArrayList();
+        colorKeys.add(Color.red);
+        colorKeys.add(Color.orange);
+        colorKeys.add(Color.yellow);
+        colorKeys.add(Color.green);
+        colorKeys.add(Color.blue);
+        colorKeys.add(Color.magenta);
+        colorKeys.add(Color.red);
+        List<Color> colors = GameFrame.colorKeyFrame(colorKeys,25);
+
         List<Frame> frames = Lists.newArrayList();
         List<MoverInterface> movers = Lists.newArrayList();
+
+        int currentColorIndex = 0;
 
         Frame lastFrame = new Frame();
         for (int frameIndex=0; frameIndex< framesToGenerate; frameIndex++) {
             Frame thisFrame = Frame.copyFrameAndFade(lastFrame, redFade, greenFade, blueFade);
 
             if (frameIndex < framesToGenerate -2*GameFrame.YSIZE) {  // stop adding and leave time for a fadeout
-                int zipX = (int)Math.floor(Math.random()*GameFrame.XSIZE);
-                Color color = new Color((float)Math.random()*redWeight,(float)Math.random()*greenWeight,(float)Math.random()*blueWeight);
-                movers.add(new StraightMover(zipX, -1, color, StraightMover.DIRECTION_SOUTH, false));
+                int x = (int)Math.floor(Math.random()*GameFrame.XSIZE);
+
+                Color color = colors.get(currentColorIndex);
+                currentColorIndex = (currentColorIndex+1) % colors.size();
+                if (redWeight > 0 || greenWeight > 0 || blueWeight > 0) {
+                    color = new Color((float)Math.random()*redWeight,(float)Math.random()*greenWeight,(float)Math.random()*blueWeight);
+                }
+                movers.add(new StraightMover(x, -1, color, StraightMover.DIRECTION_SOUTH, false));
             }
 
             List<MoverInterface> activeMovers = Lists.newArrayList();

@@ -67,4 +67,25 @@ public class GameFrame {
         return fadedImage;
     }
 
+    public static List<Color> colorKeyFrame(List<Color> keyFrames, int framesBetween) {
+
+        List<Color> colors = Lists.newArrayList();
+        for (int keyFrameIndex=0; keyFrameIndex<keyFrames.size()-1; keyFrameIndex++) {
+            Color startColor = keyFrames.get(keyFrameIndex);
+            Color endColor = keyFrames.get(keyFrameIndex+1);
+//            System.out.printf("Start Color: %s, End Color: %s\n",startColor,endColor);
+            for (int frameIndex=0; frameIndex<framesBetween; frameIndex++) {
+                float weight = (float)frameIndex / (float)(framesBetween+1);
+                int r = (int)((1-weight)*(float)startColor.getRed() + weight*(float)endColor.getRed());
+                int g = (int)((1-weight)*(float)startColor.getGreen() + weight*(float)endColor.getGreen());
+                int b = (int)((1-weight)*(float)startColor.getBlue() + weight*(float)endColor.getBlue());
+                Color color = new Color(r,g,b);
+                colors.add(color);
+//                System.out.printf("%d: %s\n",frameIndex,color);
+            }
+        }
+
+        return colors;
+    }
+
 }
