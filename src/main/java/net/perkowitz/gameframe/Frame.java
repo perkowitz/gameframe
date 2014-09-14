@@ -29,6 +29,29 @@ public class Frame {
         return new Color(bufferedImage.getRGB(x,y));
     }
 
+    public void box(int startX, int startY, int endX, int endY, Color color) {
+
+        for (int x=startX; x<=endX; x++) {
+            set(x,startY,color);
+            set(x,endY,color);
+        }
+        for (int y=startY; y<=endY; y++) {
+            set(startX,y,color);
+            set(endX,y,color);
+        }
+
+    }
+
+    public void filledBox(int startX, int startY, int endX, int endY, Color color) {
+
+        for (int x=startX; x<=endX; x++) {
+            for (int y=startY; y<=endY; y++) {
+                set(x,y,color);
+            }
+        }
+
+    }
+
     public void output(String filename) {
         try {
             ImageIO.write(bufferedImage, "BMP", new File(filename));
@@ -59,4 +82,5 @@ public class Frame {
     public BufferedImage getBufferedImage() {
         return bufferedImage;
     }
+
 }

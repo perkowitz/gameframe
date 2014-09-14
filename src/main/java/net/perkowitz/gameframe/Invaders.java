@@ -11,7 +11,7 @@ public class Invaders {
     public static void main(String[] args) {
 
         if (args.length < 5) {
-            System.out.println("Usage: Falling <image name> <invader type> <red> <green> <blue>");
+            System.out.println("Usage: Invaders <image name> <invader type> <red> <green> <blue>");
             System.out.println("  Color weights between 0 and 1.");
             return;
         }
