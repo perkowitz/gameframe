@@ -9,5 +9,7 @@ public interface MoverInterface {
     public void step();
     public void render(Frame frame);
     public boolean isDone();
+    public int width();
+    public int height();
 
 }

@@ -20,7 +20,9 @@ public class Frame {
     }
 
     public void set(int x, int y, Color color) {
-        bufferedImage.setRGB(x,y,color.getRGB());
+        if (x >= 0 && x < bufferedImage.getWidth() && y >= 0 && y < bufferedImage.getHeight()) {
+            bufferedImage.setRGB(x,y,color.getRGB());
+        }
     }
 
     public Color get(int x, int y) {

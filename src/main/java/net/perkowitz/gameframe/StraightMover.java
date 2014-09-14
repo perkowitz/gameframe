@@ -74,4 +74,12 @@ public class StraightMover implements MoverInterface {
         return done;
     }
 
+    public int height() {
+        return 1;
+    }
+
+    public int width() {
+        return 1;
+    }
+
 }
