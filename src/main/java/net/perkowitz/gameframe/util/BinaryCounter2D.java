@@ -1,4 +1,4 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.util;
 
 public class BinaryCounter2D {
 

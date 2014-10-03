@@ -1,4 +1,4 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.core;
 
 
 import javax.imageio.ImageIO;
@@ -46,7 +46,7 @@ public class Frame {
 
         for (int x=startX; x<=endX; x++) {
             for (int y=startY; y<=endY; y++) {
-                set(x,y,color);
+                set(x, y, color);
             }
         }
 

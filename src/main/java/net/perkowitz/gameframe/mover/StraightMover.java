@@ -1,4 +1,6 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.mover;
+
+import net.perkowitz.gameframe.core.*;
 
 import java.awt.*;
 
@@ -64,7 +66,7 @@ public class StraightMover implements MoverInterface {
         }
     }
 
-    public void render(Frame frame) {
+    public void render(net.perkowitz.gameframe.core.Frame frame) {
         if (!done) {
             frame.set(x,y,color);
         }

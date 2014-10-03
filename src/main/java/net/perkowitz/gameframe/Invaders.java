@@ -1,6 +1,9 @@
 package net.perkowitz.gameframe;
 
 import com.google.common.collect.Lists;
+import net.perkowitz.gameframe.mover.InvadeMover;
+import net.perkowitz.gameframe.mover.MoverInterface;
+import net.perkowitz.gameframe.core.*;
 
 import java.awt.*;
 import java.io.File;
@@ -33,9 +36,9 @@ public class Invaders {
         int width = sample.width();
         int height = sample.height();
 
-        List<Frame> frames = Lists.newArrayList();
+        List<net.perkowitz.gameframe.core.Frame> frames = Lists.newArrayList();
         List<MoverInterface> movers = Lists.newArrayList();
-        movers.add(new InvadeMover(type,color,GameFrame.XSIZE - width,height-1));
+        movers.add(new InvadeMover(type,color,GameFrame.XSIZE-width,height-1));
         movers.add(new InvadeMover(type,color,-1,height*2+1));
 
         int invaderGap = (GameFrame.XSIZE - width + 1) * (height + 1);
@@ -45,7 +48,7 @@ public class Invaders {
             if (frameIndex % invaderGap == 0) {
                 movers.add(new InvadeMover(type,color,-1,-1));
             }
-            Frame thisFrame = new Frame();
+            net.perkowitz.gameframe.core.Frame thisFrame = new net.perkowitz.gameframe.core.Frame();
             for (MoverInterface mover : movers) {
                 mover.step();
                 mover.render(thisFrame);

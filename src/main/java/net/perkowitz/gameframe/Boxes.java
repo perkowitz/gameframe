@@ -1,6 +1,9 @@
 package net.perkowitz.gameframe;
 
 import com.google.common.collect.Lists;
+import net.perkowitz.gameframe.mover.BoxMover;
+import net.perkowitz.gameframe.mover.MoverInterface;
+import net.perkowitz.gameframe.core.*;
 
 import java.awt.*;
 import java.io.File;
@@ -30,13 +33,13 @@ public class Boxes {
 
         List<MoverInterface> movers = Lists.newArrayList();
         for (int offset=0; offset<8; offset+=2) {
-            movers.add(new BoxMover(offset,offset,GameFrame.XSIZE-offset-1,GameFrame.YSIZE-offset-1,color));
+            movers.add(new BoxMover(offset,offset, GameFrame.XSIZE-offset-1,GameFrame.YSIZE-offset-1,color));
         }
 
-        List<Frame> frames = Lists.newArrayList();
-        Frame lastFrame = new Frame();
+        List<net.perkowitz.gameframe.core.Frame> frames = Lists.newArrayList();
+        net.perkowitz.gameframe.core.Frame lastFrame = new net.perkowitz.gameframe.core.Frame();
         for (int frameIndex=0; frameIndex < 1200; frameIndex++) {
-            Frame thisFrame = Frame.copyFrameAndFade(lastFrame, fade, fade, fade);
+            net.perkowitz.gameframe.core.Frame thisFrame = net.perkowitz.gameframe.core.Frame.copyFrameAndFade(lastFrame, fade, fade, fade);
 //            Frame frame = new Frame();
 
             for (MoverInterface mover : movers) {

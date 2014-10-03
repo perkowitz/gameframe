@@ -1,6 +1,9 @@
 package net.perkowitz.gameframe;
 
 import com.google.common.collect.Lists;
+import net.perkowitz.gameframe.mover.MoverInterface;
+import net.perkowitz.gameframe.mover.StraightMover;
+import net.perkowitz.gameframe.core.*;
 
 import java.awt.*;
 import java.io.File;
@@ -44,16 +47,16 @@ public class Falling {
         colorKeys.add(Color.blue);
         colorKeys.add(Color.magenta);
         colorKeys.add(Color.red);
-        List<Color> colors = GameFrame.colorKeyFrame(colorKeys,25);
+        List<Color> colors = GameFrame.colorKeyFrame(colorKeys, 25);
 
-        List<Frame> frames = Lists.newArrayList();
+        List<net.perkowitz.gameframe.core.Frame> frames = Lists.newArrayList();
         List<MoverInterface> movers = Lists.newArrayList();
 
         int currentColorIndex = 0;
 
-        Frame lastFrame = new Frame();
+        net.perkowitz.gameframe.core.Frame lastFrame = new net.perkowitz.gameframe.core.Frame();
         for (int frameIndex=0; frameIndex< framesToGenerate; frameIndex++) {
-            Frame thisFrame = Frame.copyFrameAndFade(lastFrame, redFade, greenFade, blueFade);
+            net.perkowitz.gameframe.core.Frame thisFrame = net.perkowitz.gameframe.core.Frame.copyFrameAndFade(lastFrame, redFade, greenFade, blueFade);
 
             if (frameIndex < framesToGenerate -2*GameFrame.YSIZE) {  // stop adding and leave time for a fadeout
                 int x = (int)Math.floor(Math.random()*GameFrame.XSIZE);

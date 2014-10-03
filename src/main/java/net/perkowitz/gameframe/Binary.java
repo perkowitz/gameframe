@@ -1,6 +1,8 @@
 package net.perkowitz.gameframe;
 
 import com.google.common.collect.Lists;
+import net.perkowitz.gameframe.core.*;
+import net.perkowitz.gameframe.util.BinaryCounter2D;
 
 import java.awt.*;
 import java.io.File;
@@ -32,17 +34,17 @@ public class Binary {
         int dimX = GameFrame.XSIZE / bitSize;
         int dimY = GameFrame.YSIZE / bitSize;
         BinaryCounter2D counter = new BinaryCounter2D(dimX,dimY);
-        List<Frame> frames = Lists.newArrayList();
-        for (int c=0; c<Math.min(Math.pow(2,dimX*dimY),256); c++) {
+        List<net.perkowitz.gameframe.core.Frame> frames = Lists.newArrayList();
+        for (int c=0; c<Math.min(Math.pow(2, dimX * dimY), 256); c++) {
 
-            Frame frame = new Frame();
+            net.perkowitz.gameframe.core.Frame frame = new net.perkowitz.gameframe.core.Frame();
 
             boolean[][] bits = counter.encode(c);
             for (int y=0; y<dimY; y++) {
                 for (int x=0; x<dimX; x++) {
                     if (bits[x][y]) {
                         frame.filledBox(x*bitSize+1,y*bitSize+1,(x+1)*bitSize-2,(y+1)*bitSize-2,color2);
-                        frame.box(x*bitSize+1,y*bitSize+1,(x+1)*bitSize-2,(y+1)*bitSize-2,color);
+                        frame.box(x * bitSize + 1, y * bitSize + 1, (x + 1) * bitSize - 2, (y + 1) * bitSize - 2, color);
                     } else {
                         frame.filledBox(x*bitSize+1,y*bitSize+1,(x+1)*bitSize-2,(y+1)*bitSize-2,color2);
                     }

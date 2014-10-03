@@ -1,9 +1,6 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.core;
 
 
-import com.google.common.collect.Lists;
-
-import java.awt.*;
 import java.io.File;
 import java.util.List;
 

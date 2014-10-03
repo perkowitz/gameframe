@@ -1,6 +1,8 @@
 package net.perkowitz.gameframe;
 
 import com.google.common.collect.Lists;
+import net.perkowitz.gameframe.core.*;
+import net.perkowitz.gameframe.util.BinaryCounter2D;
 
 import java.awt.*;
 import java.io.File;
@@ -31,10 +33,10 @@ public class BinaryLines {
         int dimY = 2;
         int bitHeight = 16 / dimY;
         BinaryCounter2D counter = new BinaryCounter2D(dimX,dimY);
-        List<Frame> frames = Lists.newArrayList();
+        List<net.perkowitz.gameframe.core.Frame> frames = Lists.newArrayList();
         for (int c=0; c<4096; c++) {
 
-            Frame frame = new Frame();
+            net.perkowitz.gameframe.core.Frame frame = new net.perkowitz.gameframe.core.Frame();
 
             boolean[][] bits = counter.encode(c);
             for (int y=0; y<dimY; y++) {

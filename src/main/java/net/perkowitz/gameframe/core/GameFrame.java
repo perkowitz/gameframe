@@ -1,4 +1,4 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.core;
 
 import com.google.common.collect.Lists;
 

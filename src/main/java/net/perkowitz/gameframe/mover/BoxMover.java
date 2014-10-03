@@ -1,4 +1,6 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.mover;
+
+import net.perkowitz.gameframe.core.*;
 
 import java.awt.*;
 
@@ -43,7 +45,7 @@ public class BoxMover implements MoverInterface {
 
     }
 
-    public void render(Frame frame) {
+    public void render(net.perkowitz.gameframe.core.Frame frame) {
         frame.set(currentX,currentY,color);
     }
 

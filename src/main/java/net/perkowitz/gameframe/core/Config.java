@@ -1,4 +1,4 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.core;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

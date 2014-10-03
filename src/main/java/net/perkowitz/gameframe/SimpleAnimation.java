@@ -1,5 +1,7 @@
 package net.perkowitz.gameframe;
 
+import net.perkowitz.gameframe.core.GameFrame;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.List;

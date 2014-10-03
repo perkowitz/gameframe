@@ -1,5 +1,7 @@
-package net.perkowitz.gameframe;
+package net.perkowitz.gameframe.mover;
 
+
+import net.perkowitz.gameframe.core.GameFrame;
 
 import java.awt.*;
 
@@ -48,7 +50,7 @@ public class InvadeMover implements MoverInterface {
 
     }
 
-    public void render(Frame frame) {
+    public void render(net.perkowitz.gameframe.core.Frame frame) {
         if (!done) {
             switch (type) {
                 case 0:
@@ -87,7 +89,7 @@ public class InvadeMover implements MoverInterface {
 
     // private methods
 
-    private void draw0(Frame frame) {
+    private void draw0(net.perkowitz.gameframe.core.Frame frame) {
 
         frame.set(currentX+3,currentY,color);
         frame.set(currentX+4,currentY,color);
@@ -145,7 +147,7 @@ public class InvadeMover implements MoverInterface {
 
     }
 
-    private void draw1(Frame frame) {
+    private void draw1(net.perkowitz.gameframe.core.Frame frame) {
 
         frame.set(currentX+1,currentY,color);
         frame.set(currentX+6,currentY,color);
@@ -191,7 +193,7 @@ public class InvadeMover implements MoverInterface {
 
     }
 
-    private void draw2(Frame frame) {
+    private void draw2(net.perkowitz.gameframe.core.Frame frame) {
 
         frame.set(currentX,currentY,color);
         frame.set(currentX+1,currentY,color);
@@ -263,7 +265,7 @@ public class InvadeMover implements MoverInterface {
 
     }
 
-    private void draw3(Frame frame) {
+    private void draw3(net.perkowitz.gameframe.core.Frame frame) {
 
         frame.set(currentX+3,currentY,color);
         frame.set(currentX+12,currentY,color);
